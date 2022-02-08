@@ -1,5 +1,5 @@
 require "sinatra"
-require "sinatra/reloader"
+require "sinatra/reloader" if development?
 require "tilt/erubis"
 require "yaml"
 
@@ -20,7 +20,7 @@ get "/" do
 end
 
 get "/chapters/:number" do # :number is a parameter that represents any single segment that follows '/chapters'
-  number = params[:number].to_i # params is a hash automatically available in routes
+  number = params[:number].to_i
   chapter_name = @contents[number - 1]
 
   redirect "/" unless (1..@contents.size).cover? number
