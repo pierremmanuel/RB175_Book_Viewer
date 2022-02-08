@@ -1,0 +1,11 @@
+<h2 class="content-subhead">Users</h2>
+
+<div class="pure-menu">
+  <ul>
+    <% @users.keys.each do |user| %>
+      <li>
+        <a href="/<%= user %>"><%= user.capitalize %></a>
+      </li>
+    <% end %>
+  </ul>
+</div>
